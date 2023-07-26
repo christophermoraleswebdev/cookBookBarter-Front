@@ -1,8 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Balthazar&display=swap');
 * {
   margin: 0;
   padding: 0;
   background-color: rgb(47, 46, 46);
+  font-family: 'Balthazar', serif;
+  color: white;
 }
 #root {
   padding: 0;
@@ -11,19 +13,20 @@
 .navbar {
   display: flex;
   flex-direction: column;
-  font-family: Cooperplate, Papyrus, fantasy;
   padding: 0;
 }
 .nav-links {
   display: flex;
   justify-content: flex-end;
   background-color: rgb(41, 41, 41);
-  width: 100%;
+  min-width: 100%;
   margin-bottom: 20px;
 }
 .nav-logo {
   color: rgb(143, 21, 21);
-  font-size: 30px;
+  font-size: 35px;
+  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
 .nav-link i, .nav-link {
@@ -33,4 +36,58 @@
 }
 .nav-link:hover {
   color: rgb(143, 21, 21);
+}
+/* Home Recipe Cards */
+.container {
+  text-align: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 20px;
+}
+.card {
+  margin: auto;
+  height: 300px;
+  margin-bottom: 30px;
+}
+.card-body {
+  margin-top: auto;
+}
+/* Selected Recipe */
+.recipe-container h1 {
+  text-align: center;
+  color: lightgray;
+}
+.image-container {
+  max-width: 400px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+.recipe-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.recipe-container h4 {
+  text-align: center;
+}
+.recipe-description {
+  max-width: 400px;
+  margin: 0  auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .image-container {
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+  .recipe-container h1 {
+    font-size: 30px;
+  }
 }
