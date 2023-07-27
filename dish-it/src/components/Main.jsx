@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
+import Login from './Login'
+import Signup from './Signup'
 import Home from './Home'
 import Favorites from './Favorites'
 import CreateRecipe from './CreateRecipe'
@@ -27,6 +29,16 @@ const Main = () => {
       <Routes>
             <Route 
                   path='/'  
+                  element={
+                        <Login />}
+            />
+            <Route 
+                  path='/signup'  
+                  element={
+                        <Signup />}
+            />
+            <Route 
+                  path='/home'  
                   element={
                         <Home 
                              allRecipes={allRecipes} 

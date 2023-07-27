@@ -4,7 +4,7 @@ const CustomNav = () => {
   return (
     <div className="navbar">
       <div className="nav-links">
-            <Link className='nav-link' to='/'><i class="fa-solid fa-house"></i>Home</Link>
+            <Link className='nav-link' to='/home'><i class="fa-solid fa-house"></i>Home</Link>
             <Link className='nav-link' to='/create'><i class="fa-solid fa-plus"></i>Create Recipe</Link>
             <Link className='nav-link' to='/favorites'><i class="fa-solid fa-bookmark"></i>Favorites</Link>
       </div>

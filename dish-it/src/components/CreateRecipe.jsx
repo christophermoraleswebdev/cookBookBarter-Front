@@ -2,7 +2,10 @@
 
 const CreateRecipe = () => {
   return (
-    <div>CreateRecipe</div>
+    <div>
+      <h4>Add Your Ingredients</h4>
+      
+    </div>
   )
 }
 

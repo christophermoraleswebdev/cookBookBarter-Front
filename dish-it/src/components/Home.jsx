@@ -1,7 +1,9 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 
 const Home = (props) => {
+  // const location = useLocation()
+
   const navigate = useNavigate()
   const handleRecipeClick = (id) => {
     navigate(`/recipes/${id}`)
@@ -28,6 +30,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
+      {/* <h5>Welcome, {location.state.id}</h5> */}
       <div className="gallery">
         {props.allRecipes.map((recipe) => (
           <Card
