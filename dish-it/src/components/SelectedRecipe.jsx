@@ -2,18 +2,23 @@ import { useParams } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import Comments from "./Comments"
+import AddComment from "./AddComment"
 
 
 const SelectedRecipe = (props) => {
   const [recipe, setRecipe] = useState({})
+  const [favorites, setFavorites] = useState([])
   const { id } = useParams()
-  console.log(id)
-  console.log(props)
+
 
   useEffect(() => {
     setRecipe(props.allRecipes.filter((recipe) => recipe._id == id)[0])
   }, [props])
-  console.log(Object.keys(recipe).length)
+
+  const handleAddToFavorites = (id) => {
+    setFavorites([...favorites, id]);
+    console.log(setFavorites);
+  }
 
   const renderInstructions = (instructions) => {
     if (!instructions) return null
@@ -36,7 +41,7 @@ const SelectedRecipe = (props) => {
           <img className="recipe-image" src={recipe.picture} alt={recipe.title} />
         </div>
         <div className="button-container">
-          <Button size="sm" variant="danger"><i class="fa-solid fa-plus"></i> Favorites</Button>{' '}
+          <Button onClick={handleAddToFavorites} size="sm" variant="danger"><i class="fa-solid fa-plus"></i> Favorites</Button>{' '}
         </div>
         <h4>Description</h4>
         <div className="recipe-description">
@@ -59,6 +64,10 @@ const SelectedRecipe = (props) => {
             comment={recipe.comments} 
             rating={recipe.ratings}
           />
+          {/* <AddComment 
+            recipe={recipe._id}
+
+          /> */}
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import { Container, ListGroup } from 'react-bootstrap'
 
 const Comments = (props) => {
-  console.log(props)
   const convertToNormalTime = (timestamp) => {
     const dateObject = new Date(timestamp)
 
@@ -31,10 +30,13 @@ const Comments = (props) => {
       <Container className="d-flex justify-content-center">
         <ListGroup className="mx-auto w-100">
           {props.comment.map((comment) => (
-            <div className='comment-details' key={comment.id}>
-              {comment.text}
-              <div className='time-container'>{convertToNormalTime(comment.timestamp).date}</div>
-              {console.log(comment.user)}
+            <div className='comment-details' key={comment._id}>
+              <div className='comment-text'>
+                {comment.text}
+              </div>
+              <div className='username'>
+                - {comment.user.username} ({convertToNormalTime(comment.timestamp).date})
+              </div>
             </div>
           ))}
         </ListGroup>
