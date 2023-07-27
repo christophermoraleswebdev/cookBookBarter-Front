@@ -1,35 +1,43 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useState, useContext } from "react"
+import { Link, useNavigate } from "react-router-dom"
+import UserContext from "../UserContext"
 
 const Login = () => {
-  const history = useNavigate()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const { setUser } = useContext(UserContext)
 
-  async function submit(e){
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const submit = async (e) => {
     e.preventDefault()
+    try {
+      const response = await axios.post(
+        "https://cookbookbarter-api.up.railway.app/api/user/login",
+        {
+          email: email,
+          password: password
+        }
+      )
 
-    try{
+      console.log(response.data) 
+      setUser(response.data)
+      navigate("/home")
 
-      await axios.post(`https://cookbookbarter-api.up.railway.app/api/user/login`, { email, password })
-
-    } catch(e){
-
-      console.log(e)
-
+    } catch (error) {
+      console.error(error)
     }
   }
-
 
   return (
     <div>
       <h1>Login</h1>
-      <form action="POST">
+      <form onSubmit={submit}>
         <input
           type="email"
           onChange={(e) => {
-            setEmail(e.target.value);
+            setEmail(e.target.value)
           }}
           placeholder="Email"
           name="email"
@@ -38,14 +46,14 @@ const Login = () => {
         <input
           type="password"
           onChange={(e) => {
-            setPassword(e.target.value);
+            setPassword(e.target.value)
           }}
           placeholder="Password"
-          name="email"
-          id="email"
+          name="password"
+          id="password"
         />
 
-        <input type="submit" onClick={submit}/>
+        <input type="submit" value="Login" />
       </form>
       <br />
 
@@ -54,7 +62,7 @@ const Login = () => {
 
       <Link to="/signup">Signup</Link>
     </div>
-  );
-};
+  )
+}
 
 export default Login

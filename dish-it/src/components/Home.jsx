@@ -1,8 +1,8 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
+import { useState } from 'react'
 
 const Home = (props) => {
-  // const location = useLocation()
 
   const navigate = useNavigate()
   const handleRecipeClick = (id) => {
@@ -30,7 +30,6 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      {/* <h5>Welcome, {location.state.id}</h5> */}
       <div className="gallery">
         {props.allRecipes.map((recipe) => (
           <Card

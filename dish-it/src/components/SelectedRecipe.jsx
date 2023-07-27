@@ -1,24 +1,49 @@
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import Button from 'react-bootstrap/Button'
 import Comments from "./Comments"
 import AddComment from "./AddComment"
+import UserContext from "../UserContext"
+import axios from "axios"
 
 
 const SelectedRecipe = (props) => {
+  const { user, setUser } = useContext(UserContext)
   const [recipe, setRecipe] = useState({})
-  const [favorites, setFavorites] = useState([])
+  // const [favorites, setFavorites] = useState(user.favorites)
   const { id } = useParams()
-
+  console.log(user)
+  console.log(id)
 
   useEffect(() => {
     setRecipe(props.allRecipes.filter((recipe) => recipe._id == id)[0])
   }, [props])
 
-  const handleAddToFavorites = (id) => {
-    setFavorites([...favorites, id]);
-    console.log(setFavorites);
+
+  const addToFavorites = async (recipeId) => {
+    try {
+      // Add the recipe ID to the favorites array
+      const updatedFavorites = [...user.favorites, recipeId]
+
+      // Make an Axios PUT request to update user's favorites
+      await axios.put(`https://cookbookbarter-api.up.railway.app/api/user/${user._id}`, {
+        ...user,
+        favorites: updatedFavorites,
+      })
+
+      setUser({
+        ...user,
+        favorites: updatedFavorites,
+      })
+
+
+    } catch (error) {
+      console.error('Error adding to favorites:', error);
+    }
   }
+
+  // setFavorites([...favorites, id]);
+    // console.log(setFavorites);
 
   const renderInstructions = (instructions) => {
     if (!instructions) return null
@@ -41,7 +66,7 @@ const SelectedRecipe = (props) => {
           <img className="recipe-image" src={recipe.picture} alt={recipe.title} />
         </div>
         <div className="button-container">
-          <Button onClick={handleAddToFavorites} size="sm" variant="danger"><i class="fa-solid fa-plus"></i> Favorites</Button>{' '}
+          <Button onClick={() => addToFavorites(id)} size="sm" variant="danger"><i class="fa-solid fa-plus"></i> Favorites</Button>{' '}
         </div>
         <h4>Description</h4>
         <div className="recipe-description">
