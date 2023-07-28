@@ -21,20 +21,17 @@ const SelectedRecipe = (props) => {
 
 
   const addToFavorites = async (recipeId) => {
+    const updatedFavorites = [...user.favorites, recipeId]
+    const updatedUser = {...user,
+    favorites: updatedFavorites,}
+    setUser(updatedUser)
+    console.log(updatedUser)
     try {
-      // Add the recipe ID to the favorites array
-      const updatedFavorites = [...user.favorites, recipeId]
+
 
       // Make an Axios PUT request to update user's favorites
-      await axios.put(`https://cookbookbarter-api.up.railway.app/api/user/${user._id}`, {
-        ...user,
-        favorites: updatedFavorites,
-      })
-
-      setUser({
-        ...user,
-        favorites: updatedFavorites,
-      })
+      const res = await axios.put(`https://cookbookbarter-api.up.railway.app/api/user/${user._id}`, updatedUser )
+      console.log(res.data)
 
 
     } catch (error) {
