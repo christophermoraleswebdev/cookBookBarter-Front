@@ -5,15 +5,15 @@ import Comments from "./Comments"
 import AddComment from "./AddComment"
 import UserContext from "../UserContext"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 
 const SelectedRecipe = (props) => {
+  const navigate = useNavigate()
+
   const { user, setUser } = useContext(UserContext)
   const [recipe, setRecipe] = useState({})
-  // const [favorites, setFavorites] = useState(user.favorites)
   const { id } = useParams()
-  console.log(user)
-  console.log(id)
 
   useEffect(() => {
     setRecipe(props.allRecipes.filter((recipe) => recipe._id == id)[0])
@@ -21,6 +21,12 @@ const SelectedRecipe = (props) => {
 
 
   const addToFavorites = async (recipeId) => {
+    if (user.favorites.includes(recipeId)) {
+      navigate(`/home`)
+      return
+    }
+
+
     const updatedFavorites = [...user.favorites, recipeId]
     const updatedUser = {...user,
     favorites: updatedFavorites,}
@@ -28,8 +34,6 @@ const SelectedRecipe = (props) => {
     console.log(updatedUser)
     try {
 
-
-      // Make an Axios PUT request to update user's favorites
       const res = await axios.put(`https://cookbookbarter-api.up.railway.app/api/user/${user._id}`, updatedUser )
       console.log(res.data)
 
@@ -38,9 +42,7 @@ const SelectedRecipe = (props) => {
       console.error('Error adding to favorites:', error);
     }
   }
-
-  // setFavorites([...favorites, id]);
-    // console.log(setFavorites);
+  console.log(user)
 
   const renderInstructions = (instructions) => {
     if (!instructions) return null
@@ -53,7 +55,7 @@ const SelectedRecipe = (props) => {
     ))
   }
 
-  if(Object.keys(recipe).length == 0) {
+  if(!recipe) {
     return <div>Loading...</div>
   } else {
     return (
@@ -63,7 +65,7 @@ const SelectedRecipe = (props) => {
           <img className="recipe-image" src={recipe.picture} alt={recipe.title} />
         </div>
         <div className="button-container">
-          <Button onClick={() => addToFavorites(id)} size="sm" variant="danger"><i class="fa-solid fa-plus"></i> Favorites</Button>{' '}
+          <Button onClick={() => addToFavorites(id)} size="sm" variant="danger"><i className="fa-solid fa-plus"></i> Favorites</Button>{' '}
         </div>
         <h4>Description</h4>
         <div className="recipe-description">

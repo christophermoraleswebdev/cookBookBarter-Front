@@ -3,15 +3,25 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [profilePicture, setProfilePicture] = useState('')
 
-  async function submit(e){
+  const create = async (e) =>{
     e.preventDefault()
 
     try{
 
-      await axios.post(`https://cookbookbarter-api.up.railway.app/api/user/create`, { email, password })
+      const response = await axios.post(`https://cookbookbarter-api.up.railway.app/api/user/create`, { username, email, password, firstName, lastName, profilePicture })
+      
+      console.log(response.data)
+      alert('Your account has been successfully created! You can now sign in.')
+      navigate("/")
 
     } catch(e){
 
@@ -22,9 +32,18 @@ const Signup = () => {
 
 
   return (
-    <div>
+    <div className="login-form">
       <h1>Signup</h1>
-      <form action="POST">
+      <form onSubmit={create}>
+        <input
+          type="text"
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          placeholder="Username"
+          name="username"
+          id="username"
+        />
         <input
           type="email"
           onChange={(e) => {
@@ -40,18 +59,41 @@ const Signup = () => {
             setPassword(e.target.value);
           }}
           placeholder="Password"
-          name="email"
-          id="email"
+          name="password"
+          id="password"
+        />
+        <input
+          type="text"
+          onChange={(e) => {
+            setFirstName(e.target.value);
+          }}
+          placeholder="First Name"
+          name="firstName"
+          id="firstName"
+        />
+        <input
+          type="text"
+          onChange={(e) => {
+            setLastName(e.target.value);
+          }}
+          placeholder="Last Name"
+          name="lastName"
+          id="lastName"
+        />
+        <input
+          type="text"
+          onChange={(e) => {
+            setProfilePicture(e.target.value);
+          }}
+          placeholder="Profile Picture URL/Link"
+          name="profilePicture"
+          id="profilePicture"
         />
 
-        <input type="submit" onClick={submit}/>
+        <input className="login-button" type="submit"/>
       </form>
-      <br />
 
-      <p>OR</p>
-      <br />
-
-      <Link to="/">Login</Link>
+      <p className="no-account">Already have an account?<Link className="signup" to="/">Login</Link></p>
     </div>
   );
 };

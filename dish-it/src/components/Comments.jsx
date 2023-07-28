@@ -23,7 +23,7 @@ const Comments = (props) => {
 
     return { date, time }
   }
-
+  if(props.comment){
   return (
     <div className="comments">
       <h4>Comments</h4>
@@ -42,7 +42,9 @@ const Comments = (props) => {
         </ListGroup>
       </Container>
     </div>
-  )
+  )} else {
+    return "loading please wait"
+  }
 }
 
 export default Comments

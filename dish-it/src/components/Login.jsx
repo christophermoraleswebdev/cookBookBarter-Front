@@ -31,7 +31,7 @@ const Login = () => {
   }
 
   return (
-    <div>
+    <div className="login-form">
       <h1>Login</h1>
       <form onSubmit={submit}>
         <input
@@ -53,14 +53,10 @@ const Login = () => {
           id="password"
         />
 
-        <input type="submit" value="Login" />
+        <input className="login-button" type="submit" value="Login" />
       </form>
-      <br />
 
-      <p>OR</p>
-      <br />
-
-      <Link to="/signup">Signup</Link>
+      <p className="no-account">Dont have an account?<Link className="signup" to="/signup">Signup</Link></p>
     </div>
   )
 }
