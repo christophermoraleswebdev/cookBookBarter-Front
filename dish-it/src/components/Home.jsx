@@ -1,8 +1,10 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import UserContext from '../UserContext'
 
 const Home = (props) => {
+  const { user } = useContext(UserContext)
 
   const navigate = useNavigate()
   const handleRecipeClick = (id) => {
@@ -30,6 +32,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
+      <p className='welcome'>Welcome to DISH IT {user.firstName} {user.lastName}!</p>
       <div className="gallery">
         {props.allRecipes.map((recipe) => (
           <Card
