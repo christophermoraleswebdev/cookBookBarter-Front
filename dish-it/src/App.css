@@ -10,6 +10,7 @@
   padding: 0;
   margin: 0;
 }
+/* Navbar */
 .navbar {
   display: flex;
   flex-direction: column;
@@ -23,14 +24,16 @@
   margin-bottom: 20px;
 }
 .nav-logo {
+  text-align: center;
   color: rgb(143, 21, 21);
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bolder;
   margin-bottom: 10px;
+  text-shadow: -.5px -.5px 0 lightgray, .5px -.5px 0 lightgray, -.5px .5px 0 lightgray, .5px .5px 0 lightgray;
 }
 
 .nav-link i, .nav-link {
-  margin-right: 5px;
+  margin-right: 3px;
   text-decoration: none;
   color: lightgray;
   background-color: rgb(41, 41, 41);
@@ -43,6 +46,9 @@
   text-align: center;
   flex-direction: column;
   margin-bottom: 100px;
+}
+.welcome {
+  color: lightgray;
 }
 .gallery {
   display: flex;
@@ -132,7 +138,50 @@
   padding: 7px;
   border-radius: 5px;
 }
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+.login-form h1 {
+  border-radius: 10px;
+  margin-top: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.login-form input {
+  margin-bottom: 20px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 5px;
+}
+.login-button {
+  background-color: rgb(143, 21, 21);
+  border-color: rgb(143, 21, 21);
+}
+.login-button:hover {
+  opacity: .7;
+}
+.signup {
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 500px) {
+  .nav-links {
+    font-size: 12.5px;
+    display: flex;
+    justify-content: space-between;
+  }
   .image-container {
     max-width: 300px;
     margin-bottom: 20px;
@@ -142,5 +191,8 @@
   }
   .recipe-description, .recipe-instructions, .preparation, .accordion-body, .comments-container, .comment-details {
     max-width: 300px;
+  }
+  .login-form {
+    max-width: 340px;
   }
 }
