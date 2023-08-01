@@ -47,7 +47,6 @@ const Favorites = () => {
         console.error("Error removing favorite:", error)
       }
     }
-    console.log(user)
 
 
 

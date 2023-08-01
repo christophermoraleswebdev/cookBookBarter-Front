@@ -21,7 +21,6 @@ const Login = ({ handleLogin }) => {
         }
       )
 
-      console.log(response.data) 
       setUser(response.data)
       handleLogin()
       navigate("/home")
