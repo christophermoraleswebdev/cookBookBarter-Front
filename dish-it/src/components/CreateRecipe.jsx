@@ -32,41 +32,35 @@ const CreateRecipeForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Title:
-        <input type="text" name="title" value={recipeData.title} onChange={handleChange} required />
-      </label>
-      <label>
-        Picture URL:
-        <input type="text" name="picture" value={recipeData.picture} onChange={handleChange} />
-      </label>
-      <label>
-        Description:
-        <textarea name="description" value={recipeData.description} onChange={handleChange}></textarea>
-      </label>
-      <label>
-        Ingredients (separated by commas):
-        <input type="text" name="ingredients" value={recipeData.ingredients} onChange={handleChange} />
-      </label>
-      <label>
-        Instructions:
-        <textarea name="instructions" value={recipeData.instructions} onChange={handleChange}></textarea>
-      </label>
-      <label>
-        Preparation Time (in minutes):
-        <input type="number" name="preparationTime" value={recipeData.preparationTime} onChange={handleChange} />
-      </label>
-      <label>
-        Cooking Time (in minutes):
-        <input type="number" name="cookingTime" value={recipeData.cookingTime} onChange={handleChange} />
-      </label>
-      <label>
-        Difficulty Level (1-5):
-        <input type="number" name="difficultyLevel" value={recipeData.difficultyLevel} onChange={handleChange} />
-      </label>
-      <button type="submit">Create Recipe</button>
-    </form>
+    <div className='login-form'>
+      <h1>Create a Recipe</h1>
+      <form onSubmit={handleSubmit}>
+        
+          <input placeholder='Title' type="text" name="title" value={recipeData.title} onChange={handleChange} required />
+        
+          
+          <input placeholder='Picture URL' type="text" name="picture" value={recipeData.picture} onChange={handleChange} />
+        
+          
+          <textarea placeholder='Description' name="description" value={recipeData.description} onChange={handleChange}></textarea>
+        
+          
+          <input placeholder='Ingredients (separated by commas)' type="text" name="ingredients" value={recipeData.ingredients} onChange={handleChange} />
+        
+          
+          <textarea placeholder='Instructions (example): Step 1: Cook the fettuccine pasta according to the package instructions...' name="instructions" value={recipeData.instructions} onChange={handleChange}></textarea>
+        
+          Preparation Time (in minutes):
+          <input type="number" name="preparationTime" value={recipeData.preparationTime} onChange={handleChange} />
+        
+          Cooking Time (in minutes):
+          <input type="number" name="cookingTime" value={recipeData.cookingTime} onChange={handleChange} />
+        
+          Difficulty Level (1-5):
+          <input type="number" name="difficultyLevel" value={recipeData.difficultyLevel} onChange={handleChange} />
+        <button className='create-recipe-btn' type="submit">Create Recipe</button>
+      </form>
+    </div>
   )
 }
 
