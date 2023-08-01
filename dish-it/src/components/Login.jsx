@@ -3,7 +3,7 @@ import { useState, useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import UserContext from "../UserContext"
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const { setUser } = useContext(UserContext)
 
   const navigate = useNavigate()
@@ -23,6 +23,7 @@ const Login = () => {
 
       console.log(response.data) 
       setUser(response.data)
+      handleLogin()
       navigate("/home")
 
     } catch (error) {

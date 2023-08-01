@@ -29,6 +29,7 @@
   font-size: 40px;
   font-weight: bolder;
   margin-bottom: 10px;
+  margin-top: 20px;
   text-shadow: -.5px -.5px 0 lightgray, .5px -.5px 0 lightgray, -.5px .5px 0 lightgray, .5px .5px 0 lightgray;
 }
 
@@ -190,9 +191,19 @@ textarea {
   background-color: rgb(143, 21, 21);
   border: 1px solid rgb(143, 21, 21);
 }
-.create-recipe-btn:hover {
+.create-recipe-btn:hover, .create-ingredient-btn:hover {
   opacity: .7;
   cursor: pointer;
+}
+.create-ingredient {
+  display: flex;
+  flex-direction: column; 
+}
+.create-ingredient-btn {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(9, 109, 9);
+  border: 1px solid rgb(9, 109, 9);
 }
 
 @media screen and (max-width: 500px) {

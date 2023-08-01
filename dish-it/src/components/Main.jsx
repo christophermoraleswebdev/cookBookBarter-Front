@@ -9,7 +9,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 
-const Main = () => {
+const Main = ({ handleLogin }) => {
 
       const [allRecipes, setAllRecipes] = useState([])
 
@@ -24,13 +24,17 @@ const Main = () => {
 
           }, [])
 
+      const handleCreateRecipe = (newRecipe) => {
+            setAllRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
+      }
+
   return (
     <div>
       <Routes>
             <Route 
                   path='/'  
                   element={
-                        <Login />}
+                        <Login handleLogin={handleLogin}/>}
             />
             <Route 
                   path='/signup'  
@@ -55,7 +59,7 @@ const Main = () => {
                   path='/create'  
                   element={
                         <CreateRecipe 
-
+                              handleCreateRecipe={handleCreateRecipe}
                         />}
             />
             <Route 

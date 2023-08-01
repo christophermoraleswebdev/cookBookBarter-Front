@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import UserContext from '../UserContext'
 import axios from 'axios'
 
-const CustomNav = () => {
+const CustomNav = (props) => {
   const { user, setUser } = useContext(UserContext)
   const navigate = useNavigate()
 
@@ -17,16 +17,20 @@ const CustomNav = () => {
     }
   }
 
-  return (
-    <div className="navbar">
-      <div className="nav-links">
-        <Link className='nav-link' to='/home'><i className="fa-solid fa-house"></i>Home</Link>
-        <Link className='nav-link' to='/create'><i className="fa-solid fa-plus"></i>Create Recipe</Link>
-        <Link className='nav-link' to='/favorites'><i className="fa-solid fa-bookmark"></i>Favorites</Link>
-        <Link className='nav-link' to='#' onClick={() => logout(user._id)}><i className="fa-solid fa-right-from-bracket"></i>Logout</Link>
+  if(props.isLoggedIn == true) {
+    return (
+      <div className="navbar">
+        <div className="nav-links">
+          <Link className='nav-link' to='/home'><i className="fa-solid fa-house"></i>Home</Link>
+          <Link className='nav-link' to='/create'><i className="fa-solid fa-plus"></i>Create Recipe</Link>
+          <Link className='nav-link' to='/favorites'><i className="fa-solid fa-bookmark"></i>Favorites</Link>
+          <Link className='nav-link' to='#' onClick={() => { logout(user._id); props.handleLogout(); }}><i className="fa-solid fa-right-from-bracket"></i>Logout</Link>
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return null
+  }
 }
 
 export default CustomNav
