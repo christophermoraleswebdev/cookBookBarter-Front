@@ -20,9 +20,9 @@ Christopher Morales <p align="left">
 
 ## Getting Started: 
 
-<a href="https://trello.com/b/DNvxp8HQ/unit-3" target="_blank" rel="noreferrer"> Trello </a>  
+<a href="[https://trello.com/b/DNvxp8HQ/unit-3" target="_blank" rel="noreferrer](https://trello.com/b/WiqSShee/capstone-project)"> Trello </a>  
 <br/>
-<a href="https://www.figma.com/file/XUVfb7XA9sADaeI1kEsQV5/ProjectWrx?type=design&node-id=1%3A3&mode=design&t=kWNEHNrgvmWI578H-1" target="_blank" rel="noreferrer"> Figma </a> 
+<a href="[https://www.figma.com/file/XUVfb7XA9sADaeI1kEsQV5/ProjectWrx?type=design&node-id=1%3A3&mode=design&t=kWNEHNrgvmWI578H-1" target="_blank" rel="noreferrer](https://lucid.app/lucidchart/427f2052-1748-41b4-96ca-1e133893feb2/edit?invitationId=inv_43f61b1e-fa12-466d-95ba-c744dd421037&page=0_0#)https://lucid.app/lucidchart/427f2052-1748-41b4-96ca-1e133893feb2/edit?invitationId=inv_43f61b1e-fa12-466d-95ba-c744dd421037&page=0_0#"> ERD Diagram </a> 
 
 <!-- ## Login:
 ![image]()
