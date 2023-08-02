@@ -25,7 +25,7 @@ Trello - https://trello.com/b/WiqSShee/capstone-project
 ERD - https://lucid.app/documents/embedded/427f2052-1748-41b4-96ca-1e133893feb2
 
 ## Login:
-[Imgur](https://i.imgur.com/BXoQqr3.png)
+<a href="https://imgur.com/BXoQqr3"><img src="https://i.imgur.com/BXoQqr3.png" title="source: imgur.com" /></a>
 
 ## Create an Account:
 ![image]()
