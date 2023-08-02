@@ -22,7 +22,7 @@ Christopher Morales <p align="left">
 
 Trello - https://trello.com/b/WiqSShee/capstone-project  
 <br/>
-ERD -  <div style="width: 640px; height: 480px; margin: 10px; position: relative;"><iframe allowfullscreen frameborder="0" style="width:640px; height:480px" src="https://lucid.app/documents/embedded/427f2052-1748-41b4-96ca-1e133893feb2" id="~uYhNsm.K4r3"></iframe></div>
+ERD - https://lucid.app/documents/embedded/427f2052-1748-41b4-96ca-1e133893feb2
 
 <!-- ## Login:
 ![image]()
