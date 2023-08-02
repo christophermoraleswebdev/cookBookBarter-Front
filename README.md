@@ -20,8 +20,6 @@ Christopher Morales <p align="left">
 
 ## Getting Started: 
 
-Visit: Dish-It 
-<br/>
 <a href="https://trello.com/b/DNvxp8HQ/unit-3" target="_blank" rel="noreferrer"> Trello </a>  
 <br/>
 <a href="https://www.figma.com/file/XUVfb7XA9sADaeI1kEsQV5/ProjectWrx?type=design&node-id=1%3A3&mode=design&t=kWNEHNrgvmWI578H-1" target="_blank" rel="noreferrer"> Figma </a> 
