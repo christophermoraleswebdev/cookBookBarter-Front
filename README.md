@@ -24,12 +24,3 @@ Trello - https://trello.com/b/WiqSShee/capstone-project
 <br/>
 ERD - https://lucid.app/documents/embedded/427f2052-1748-41b4-96ca-1e133893feb2
 
-## Login:
-[Imgur]([https://i.imgur.com/BXoQqr3.png](https://i.imgur.com/BXoQqr3.png))
-
-
-## Create an Account:
-![image]()
-
-## Create a Recipe 
-![image]() 
