@@ -26,11 +26,11 @@ Visit: Dish-It
 <br/>
 <a href="https://www.figma.com/file/XUVfb7XA9sADaeI1kEsQV5/ProjectWrx?type=design&node-id=1%3A3&mode=design&t=kWNEHNrgvmWI578H-1" target="_blank" rel="noreferrer"> Figma </a> 
 
-## Login:
+<!-- ## Login:
 ![image]()
 
 ## Create an Account:
 ![image]()
 
 ## Create a Recipe 
-![image]()
+![image]() -->
